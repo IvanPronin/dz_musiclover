@@ -1,22 +1,22 @@
 fun main() {
 
-    var sum: Int = 10_001
+    val sum = 10_001
+    var isMusiclover: Boolean = false
 
-    var isMusiclover: Boolean = (sum == 10_001 || sum > 10_001)
+    val discountAmount = if (sum >= 1_001 && sum <= 10_000) 100
+    else if (sum <= 1_000) 0
+    else sum / 100 * 5
 
-    if(sum <= 1000){
-        println("Cкидка применяется только к сумме от 1001 рубля \nВаша сумма $sum рублей")
-    }else if(isMusiclover == true) {
-        println("Скидка составляет 5% и т.к вы меломан еще вычитаем 1%")
-        var discount: Int = sum - ((sum * 6) / 100)
-        println("Ваша сумма со скидкой составляет $discount рублей")
-    } else if (isMusiclover == false) {
-        var discount_1: Int = sum - 100
-        println("Ваша сумма со скидкой составляет $discount_1 рублей")
-    }
+    val progressDiscount = if (isMusiclover == true && sum <= 1_000) sum / 100 * 1
+    else if(isMusiclover == true) (discountAmount / 100 * 1) + discountAmount
+    else 0
 
+    var totalDiscount = discountAmount + progressDiscount
+    var totalSum = sum - totalDiscount
 
+    println("""Скидка покупателя $totalDiscount рублей.
+        |Сумма $totalSum рубублей.
+    """.trimMargin())
 
-
-
+    
 }
