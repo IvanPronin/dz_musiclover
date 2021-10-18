@@ -7,8 +7,8 @@ fun main() {
     else if (sum <= 1_000) 0
     else sum / 100 * 5
 
-    val progressDiscount = if (isMusiclover == true && sum <= 1_000) sum / 100 * 1
-    else if(isMusiclover == true) (discountAmount / 100 * 1) + discountAmount
+    val progressDiscount = if (isMusiclover == true && sum <= 1_000) sum / 100
+    else if(isMusiclover == true) (discountAmount / 100) + discountAmount
     else 0
 
     var totalDiscount = discountAmount + progressDiscount
@@ -18,5 +18,5 @@ fun main() {
         |Сумма $totalSum рубублей.
     """.trimMargin())
 
-    
+
 }
